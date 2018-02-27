@@ -1,3 +1,4 @@
+
 .smex-items
 *~$
 *~
@@ -16,3 +17,7 @@ auto-save-list/
 auto-save-list/**/*.*
 backups/
 backups/**/*.*
+
+# Undo-tree save-files
+*.~undo-tree
+
