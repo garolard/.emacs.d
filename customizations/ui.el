@@ -27,7 +27,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'flatui t)
-(set-face-attribute 'default t :font "Inconsolata")
+(set-face-attribute 'default t :font "Consolas")
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
@@ -68,3 +68,7 @@
 
 ;; no bell
 (setq ring-bell-function 'ignore)
+
+;; powerline ftw!!!
+(require 'powerline)
+(powerline-center-theme)
