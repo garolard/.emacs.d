@@ -131,6 +131,7 @@
 
 ;; Hard-to-categorize customizations
 (load "misc.el")
+(load "agora.el")
 
 ;; For editing lisps
 (load "elisp-editing.el")
