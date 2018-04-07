@@ -64,5 +64,5 @@
 (windmove-default-keybindings)
 
 ;; neotree - menu lateral para ver archivos
-(requrie 'neotree)
+(require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
