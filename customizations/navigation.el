@@ -62,3 +62,7 @@
 
 ;; default navigation keybindings for windmove
 (windmove-default-keybindings)
+
+;; neotree - menu lateral para ver archivos
+(requrie 'neotree)
+(global-set-key [f8] 'neotree-toggle)
