@@ -39,9 +39,17 @@
 (add-hook 'js2-mode-hook (lambda ()
                            (tern-mode)
                            (company-mode)))
+(add-hook 'rjsx-mode-hook (lambda ()
+							(tern-mode)
+							(company-mode)))
 
 (add-hook 'html-mode-hook 'company-mode)
 (electric-pair-mode 1)
+
+;; remapeo el mover linea arriba y abajo porque está definido en editing.el y quiero que en
+;; ficheros js lo haga bien
+(define-key js2-mode-map (kbd "M-<up>") 'js2r-move-line-up)
+(define-key js2-mode-map (kbd "M-<down>") 'js2r-move-line-down) 
 
 ;; coffeescript
 ;; (add-to-list 'auto-mode-alist '("\\.coffee.erb$" . coffee-mode))
