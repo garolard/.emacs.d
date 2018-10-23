@@ -137,8 +137,10 @@
 (load "elisp-editing.el")
 
 ;; Langauage-specific
-(load "setup-clojure.el")
+(load "lang/clojure.el")
 (load "lang/javascript.el")
+(load "lang/csharp.el")
+(load "lang/python.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -146,9 +148,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
+ '(max-lisp-eval-depth 1500)
+ '(max-specpdl-size 2040)
  '(package-selected-packages
    (quote
-    (neotree rjsx-mode undo-tree tree-mode company-tern xref-js2 js2-refactor js2-mode company-quickhelp company auto-complete tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell clojure-mode-extra-font-locking cider))))
+    (elpy 0blayout highlight-symbol aggressive-indent flycheck-clojure markdown-mode omnisharp neotree rjsx-mode undo-tree tree-mode company-tern xref-js2 js2-refactor js2-mode company-quickhelp company auto-complete tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
