@@ -2,7 +2,7 @@
 
 
 ;; Base folders for restaurant and retail development
-(setq ag:rest-base-dir "d:/desarrollo/igt.pos-4.5.x/")
+(setq ag:rest-base-dir "d:/desarrollo/igt.pos-devel/")
 (setq ag:retail-base-dir "d:/desarrollo/igt.pos.retail-devel/")
 
 
@@ -55,7 +55,7 @@
    "rest:web-admin" (concat (file-name-as-directory ag:rest-base-dir) "src/WebAdmin") 
    "rest:client" (concat (file-name-as-directory ag:rest-base-dir) "build/debug")
    "rest:aux" (concat (file-name-as-directory ag:rest-base-dir) ""))
-)
+  (ag:powerline-rest))
 
 (defun ag:start-retail ()
   "Setup shells for Ágora Retail"
@@ -65,4 +65,4 @@
    "retail:web-admin" (concat (file-name-as-directory ag:retail-base-dir) "src/WebAdmin") 
    "retail:client" (concat (file-name-as-directory ag:retail-base-dir) "build/debug")
    "retail:aux" (concat (file-name-as-directory ag:retail-base-dir) ""))
-)
+  (ag:powerline-retail))
