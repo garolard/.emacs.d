@@ -74,7 +74,14 @@
     tagedit
 
     ;; git integration
-    magit))
+    magit
+
+    ;; python integration
+    elpy
+
+    ;; syntax checker
+    flycheck
+    ))
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -139,7 +146,6 @@
 ;; Langauage-specific
 (load "lang/clojure.el")
 (load "lang/javascript.el")
-(load "lang/csharp.el")
 (load "lang/python.el")
 
 (custom-set-variables
