@@ -27,9 +27,8 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'flatui t)
+(load-theme 'material t)
 (set-face-attribute 'default t :font "Inconsolata")
-
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
 
@@ -73,3 +72,4 @@
 ;; powerline ftw!!!
 (require 'powerline)
 (powerline-center-theme)
+(setq powerline-default-separator 'wave)
