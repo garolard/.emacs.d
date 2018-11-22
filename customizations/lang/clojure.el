@@ -27,4 +27,4 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; coloreado de símbolos
-(require 'highlight-symbol)
+(use-package highlight-symbol)

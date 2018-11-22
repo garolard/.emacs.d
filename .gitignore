@@ -45,5 +45,6 @@ flycheck_*.el
 # directory configuration
 .dir-locals.el
 
+elpa/
 
 # End of https://www.gitignore.io/api/emacs
