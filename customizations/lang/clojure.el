@@ -10,19 +10,14 @@
   :mode (("lein-env" . enh-ruby-mode)))
 
 
-(add-hook 'clojure-mode-hook 'cider-mode)
+(use-package cider
+  :config 
+  (add-hook 'clojure-mode-hook 'cider-mode)
+  (add-hook 'cider-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent))))
 
 ;; enable paredit in your REPL
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 (add-hook 'cider-mode-hook 'paredit-mode)
-
-;; Auto-completado
-;;(add-hook 'cider-repl-mode-hook 'company-mode)
-;;(add-hook 'cider-mode-hook 'company-mode)
-
-;; Salto de linea e identa
-(add-hook 'cider-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
-
 
 ;; Virguerías para paréntesis
 

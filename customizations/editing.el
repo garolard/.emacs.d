@@ -68,14 +68,12 @@
 
 (setq electric-indent-mode nil)
 
+(require 'use-package)
+
 ;; tree-mode global
-(global-undo-tree-mode 1)
-
-;; comandos de teclado normales para deshacer y rehacer
-(global-set-key (kbd "C-z") 'undo)
-
-(defalias 'redo 'undo-tree-redo)
-(global-set-key (kbd "C-S-z") 'redo)
-
-(global-set-key (kbd "M-<up>") 'move-line-up)
-(global-set-key (kbd "M-<down>") 'move-line-down)
+(use-package undo-tree
+  :bind (("C-z" . undo)
+         ("C-S-z" . redo)
+         ("M-<up>" . move-line-up)
+         ("M-<down>" . move-line-down))
+  :config (global-undo-tree-mode 1))

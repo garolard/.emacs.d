@@ -24,12 +24,8 @@
 
 (use-package ido-completing-read+
   :config
-  
-  ;; ido-mode allows you to more easily navigate choices. For example,
-  ;; when you want to switch buffers, ido presents you with a list
-  ;; of buffers in the the mini-buffer. As you start to type a buffer's
-  ;; name, ido will narrow down the list of buffers to match the text
-  ;; you've typed in
+
+  ;; Easy navigation through options in minibuffer
   ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
   (ido-mode t)
 
@@ -49,17 +45,16 @@
 
   ;; This enables ido in all contexts where it could be useful, not just
   ;; for selecting buffer and file names
-  (ido-ubiquitous-mode 1))
+  (ido-ubiquitous-mode 1)
 
-;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+  ;; Shows a list of buffers
+  (global-set-key (kbd "C-x C-b") 'ibuffer))
 
 
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
 (use-package smex
-  :ensure t
   :bind (("M-x" . smex))
   :config  
   (setq smex-save-file (concat user-emacs-directory ".smex-items"))
@@ -69,23 +64,29 @@
 (windmove-default-keybindings)
 
 ;; neotree - menu lateral para ver archivos
-(require 'neotree)
+(use-package neotree
+  :preface
 
-;; show current file when opened
-(setq neo-smart-open t) 
-;; set neotree root to projectile root
-(defun neotree-project-dir ()
-  "Open NeoTree using the git root."
-  (interactive)
-  (let ((project-dir (projectile-project-root))
-		(file-name (buffer-file-name)))
-	(neotree-toggle)
-	(if project-dir
-		(if (neo-global--window-exists-p)
-			(progn
-			  (neotree-dir project-dir)
-			  (neotree-find file-name)))
-	  (message "Could not find git project root."))))
+  ;; show current file when opened
+  (setq neo-smart-open t)
 
-(global-set-key [f8] 'neotree-project-dir)
-(global-set-key (kbd "M-l") (lambda () (interactive) (neotree-find (buffer-file-name))))
+  (defun select-open-file-in-neotree ()
+    (interactive)
+    (neotree-find (buffer-file-name)))
+
+  ;; set neotree root to projectile root
+  (defun neotree-project-dir ()
+    "Open NeoTree using the git root."
+    (interactive)
+    (let ((project-dir (projectile-project-root))
+	  (file-name (buffer-file-name)))
+      (neotree-toggle)
+      (if project-dir
+	  (if (neo-global--window-exists-p)
+	      (progn
+		(neotree-dir project-dir)
+		(neotree-find file-name)))
+	(message "Could not find git project root."))))
+
+  :bind (([f8] . neotree-project-dir)
+	 ("M-l" . select-open-file-in-neotree)))

@@ -110,6 +110,9 @@
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
+;; For load global, inmediately used modes
+(load "global-modes.el")
+
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
 (load "shell-integration.el")
@@ -131,9 +134,6 @@
 
 ;; For editing lisps
 (load "elisp-editing.el")
-
-;; For load global, inmediately used modes
-(load "global-modes.el")
 
 ;; Langauage-specific
 (load "lang/clojure.el")
