@@ -1,11 +1,13 @@
 (require 'use-package)
 
 (use-package js2-mode
+  :ensure t
+  :defer t
   :mode (("\\.js\\'" . js2-mode))
   :config (add-hook 'js2-mode-hook #'js2-imenu-extras-mode))
 
-(require 'js2-refactor)
-(require 'xref-js2)
+(use-package js2-refactor)
+(use-package xref-js2)
 
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 
@@ -27,6 +29,7 @@
 (define-key js2-mode-map (kbd "M-<down>") 'js2r-move-line-down)
 
 (use-package company-tern
+  :defer t
   :config 
   (add-to-list 'company-backends 'company-tern)
   (add-hook 'js2-mode-hook (lambda () (tern-mode)))

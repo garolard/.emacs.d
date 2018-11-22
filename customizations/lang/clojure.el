@@ -2,22 +2,30 @@
 (require 'use-package)
 
 (use-package clojure-mode
+  :ensure t
   :mode (("\\.edn$" . clojure-mode)
          ("\\.boot$" . clojure-mode)
          ("\\.cljs.*$" . clojure-mode)))
 
 (use-package enh-ruby-mode
+  :ensure t
   :mode (("lein-env" . enh-ruby-mode)))
 
 
 (use-package cider
+  :ensure t
+  :defer t
   :config 
   (add-hook 'clojure-mode-hook 'cider-mode)
   (add-hook 'cider-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent))))
 
 ;; enable paredit in your REPL
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
-(add-hook 'cider-mode-hook 'paredit-mode)
+(use-package paredit
+  :ensure t
+  :defer t
+  :config
+  (add-hook 'cider-repl-mode-hook 'paredit-mode)
+  (add-hook 'cider-mode-hook 'paredit-mode))
 
 ;; Virguerías para paréntesis
 
