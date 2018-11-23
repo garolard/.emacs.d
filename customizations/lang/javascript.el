@@ -6,19 +6,15 @@
   :mode (("\\.js\\'" . js2-mode))
   :config (add-hook 'js2-mode-hook #'js2-imenu-extras-mode))
 
-(use-package js2-refactor)
-(use-package xref-js2)
+(require 'js2-refactor)
 
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-
-;; Los comandos de refactorización quedan prefijados con este keybinding
 (js2r-add-keybindings-with-prefix "C-c C-m")
-
-;; "mata" (kill) el texto hasta final de línea pero manteniendo el AST de js válido
 (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-
 ;; un-bind "M-." from js-mode which conflicts with xref
 (define-key js-mode-map (kbd "M-.") nil)
+
+(use-package xref-js2)
 
 (add-hook 'js2-mode-hook (lambda ()
                            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
