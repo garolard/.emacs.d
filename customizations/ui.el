@@ -28,7 +28,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 
-(load-theme 'material-light t)
+(load-theme 'material t)
 (set-face-attribute 'default t :font "Inconsolata")
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)

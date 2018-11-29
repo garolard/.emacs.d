@@ -15,3 +15,7 @@
   ;; projectile everywhere!
   :config
   (projectile-global-mode))
+
+(use-package google-this
+  :config
+  (google-this-mode))
