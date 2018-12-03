@@ -35,4 +35,5 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; coloreado de símbolos
-(use-package highlight-symbol)
+(use-package highlight-symbol
+  :ensure t)

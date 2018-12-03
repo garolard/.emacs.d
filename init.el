@@ -150,7 +150,7 @@
  '(max-specpdl-size 2040)
  '(package-selected-packages
    (quote
-    (google-this jedi py-autopep8 elpy 0blayout highlight-symbol aggressive-indent flycheck-clojure markdown-mode omnisharp neotree rjsx-mode undo-tree tree-mode company-tern xref-js2 js2-refactor js2-mode company-quickhelp company auto-complete tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell clojure-mode-extra-font-locking cider))))
+    (use-package google-this jedi py-autopep8 elpy 0blayout highlight-symbol aggressive-indent flycheck-clojure markdown-mode omnisharp neotree rjsx-mode undo-tree tree-mode company-tern xref-js2 js2-refactor js2-mode company-quickhelp company auto-complete tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

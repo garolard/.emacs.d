@@ -2,7 +2,7 @@
 
 
 ;; Base folders for restaurant and retail development
-(setq ag:rest-base-dir "d:/desarrollo/igt.pos-devel/")
+(setq ag:rest-base-dir "d:/desarrollo/igt-pos.rest/")
 (setq ag:retail-base-dir "d:/desarrollo/igt-pos.retail/")
 
 

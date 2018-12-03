@@ -8,14 +8,17 @@
 
 ;; Auto-complete everywhere
 (use-package company
+  :ensure t
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package projectile
   ;; projectile everywhere!
+  :ensure t
   :config
   (projectile-global-mode))
 
 (use-package google-this
+  :ensure t
   :config
   (google-this-mode))

@@ -14,7 +14,8 @@
 ;; un-bind "M-." from js-mode which conflicts with xref
 (define-key js-mode-map (kbd "M-.") nil)
 
-(use-package xref-js2)
+(use-package xref-js2
+  :ensure t)
 
 (add-hook 'js2-mode-hook (lambda ()
                            (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
