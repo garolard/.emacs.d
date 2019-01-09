@@ -27,6 +27,7 @@
 
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -77,3 +78,8 @@
          ("M-<up>" . move-line-up)
          ("M-<down>" . move-line-down))
   :config (global-undo-tree-mode 1))
+
+;; org-mode
+;; No se porque pero con use-package da errores raros
+(require 'org)
+(add-to-list 'auto-mode-alist '("\\.org" . org-mode))

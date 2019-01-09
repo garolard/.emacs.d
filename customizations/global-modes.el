@@ -16,7 +16,8 @@
   ;; projectile everywhere!
   :ensure t
   :config
-  (projectile-global-mode))
+  (projectile-global-mode)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package google-this
   :ensure t
