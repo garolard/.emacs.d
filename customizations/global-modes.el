@@ -19,6 +19,11 @@
   (projectile-global-mode)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode))
+  
 (use-package google-this
   :ensure t
   :config
