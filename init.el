@@ -59,11 +59,6 @@
     ;; https://github.com/clojure-emacs/cider
     cider
 
-    ;; allow ido usage in as many contexts as possible. see
-    ;; customizations/navigation.el line 23 for a description
-    ;; of ido
-    ido-ubiquitous
-
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer
     ;; http://www.emacswiki.org/emacs/Smex
@@ -77,9 +72,6 @@
 
     ;; edit html tags like sexps
     tagedit
-
-   ;; python integration
-    elpy
 
     ;; Packages auto-load and auto-installation
     use-package
@@ -142,6 +134,7 @@
 ; (load "lang/javascript.el")
 (load "lang/python.el")
 (load "lang/typescript.el")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

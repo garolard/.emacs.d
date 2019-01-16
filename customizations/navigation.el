@@ -21,8 +21,9 @@
 
 
 (require 'use-package)
-(require 'ido-vertical-mode)
 
+(use-package ido-vertical-mode
+  :ensure t)
 (use-package ido-completing-read+
   :ensure t
   :bind (("C-x C-b" . ibuffer))
