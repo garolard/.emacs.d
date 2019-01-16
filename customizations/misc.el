@@ -12,7 +12,3 @@
 (setq inhibit-startup-message t)
 
 (require 'use-package)
-
-;; Busqueda en google integrada
-(use-package google-this
-  :config (google-this-mode 1))

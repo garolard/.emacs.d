@@ -21,15 +21,12 @@
 
 
 (require 'use-package)
+(require 'ido-vertical-mode)
 
 (use-package ido-completing-read+
   :ensure t
-  :config
-
-  ;; Easy navigation through options in minibuffer
-  ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
-  (ido-mode t)
-
+  :bind (("C-x C-b" . ibuffer))
+  :preface
   ;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
   (setq ido-enable-flex-matching t)
 
@@ -44,12 +41,22 @@
   ;; open now
   (setq ido-use-virtual-buffers t)
 
+  ;; Muestra resultados de ido
+  (setq ido-vertical-show-count 1)
+
+  ;; Usa las flechas para navegar resultados por Dios
+  (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
+
+  :config
+  ;; Easy navigation through options in minibuffer
+  ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (ido-vertical-mode 1)
+
   ;; This enables ido in all contexts where it could be useful, not just
   ;; for selecting buffer and file names
-  (ido-ubiquitous-mode 1)
-
-  ;; Shows a list of buffers
-  (global-set-key (kbd "C-x C-b") 'ibuffer))
+  (ido-ubiquitous-mode 1))
 
 
 ;; Enhances M-x to allow easier execution of commands. Provides
@@ -57,8 +64,9 @@
 ;; http://www.emacswiki.org/emacs/Smex
 (use-package smex
   :ensure t
-  :bind (("M-x" . smex))
-  :config  
+  :bind (("M-x" . smex)
+         ("M-X" . smex-major-mode-commands))
+  :config
   (setq smex-save-file (concat user-emacs-directory ".smex-items"))
   (smex-initialize))
 

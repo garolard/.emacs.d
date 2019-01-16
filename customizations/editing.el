@@ -12,9 +12,6 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
-;; Highlights matching parenthesis
-(show-paren-mode 1)
-
 ;; Highlight current line
 (global-hl-line-mode 1)
 
