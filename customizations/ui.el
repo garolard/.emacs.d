@@ -77,6 +77,6 @@
 ;; powerline ftw!!!
 (use-package powerline
   :preface
-  (setq powerline-default-separator 'wave)
+  (setq powerline-default-separator 'arrow)
   :config
   (powerline-center-theme))

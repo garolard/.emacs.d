@@ -140,7 +140,7 @@
 ;; Langauage-specific
 (load "lang/clojure.el")
 ; (load "lang/javascript.el")
-; (load "lang/python.el")
+(load "lang/python.el")
 (load "lang/typescript.el")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
