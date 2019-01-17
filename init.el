@@ -23,7 +23,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-;; Encoding (No se si esto ya se esta haciendo en otro lado)
+;; UTF-8 Encoding (No se si esto ya se esta haciendo en otro lado)
 (set-charset-priority 'unicode)
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -31,14 +31,6 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
-
-;; Define he following variables to remove the compile-log warnings
-;; when defining ido-ubiquitous
-(defvar ido-cur-item nil)
-(defvar ido-default-item nil)
-(defvar ido-cur-list nil)
-;(defvar predicate nil)
-(defvar inherit-input-method nil)
 
 ;; The packages you want installed. You can also install these
 ;; manually with M-x package-install

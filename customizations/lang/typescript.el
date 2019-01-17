@@ -10,10 +10,17 @@
          (before-save . tide-format-before-save)))
 
 (use-package web-mode
+  :ensure t
   :mode (("\\.tsx\\'" . web-mode))
   :hook (web-mode . setup-ts-for-web-mode)
   :config
   (flycheck-add-mode 'typescript-tslint 'web-mode))
+
+(defun setup-ts-for-web-mode ()
+  (when (string-equal "tsx" (file-name-extension buffer-file-name))
+    (tide-setup)
+    (tide-set-keys)
+    (eldoc-mode 1)))
 
 ;; Keybindings for tide
 (defun tide-set-keys () 

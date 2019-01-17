@@ -48,6 +48,9 @@
   ;; Usa las flechas para navegar resultados por Dios
   (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 
+  ;; Activo flex matching para que no sea tan estricto
+  (setq ido-enable-flex-matching 1)
+
   :config
   ;; Easy navigation through options in minibuffer
   ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
