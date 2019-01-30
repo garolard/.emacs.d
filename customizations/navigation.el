@@ -85,6 +85,9 @@
   ;; show current file when opened
   (setq neo-smart-open t)
 
+  ;; ascii icons
+  (setq neo-theme 'ascii)
+
   (defun select-open-file-in-neotree ()
     (interactive)
     (neotree-find (buffer-file-name)))
