@@ -12,3 +12,9 @@
 (setq inhibit-startup-message t)
 
 (require 'use-package)
+
+(use-package all-the-icons
+  :ensure t)
+
+(use-package magit
+  :ensure t)

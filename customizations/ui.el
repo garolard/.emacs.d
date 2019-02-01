@@ -28,7 +28,13 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 
-(load-theme 'material-light t)
+;; Vamos a probar los DOOM Themes
+(require 'doom-themes)
+
+(load-theme 'doom-one t)
+
+(doom-themes-neotree-config)
+(doom-themes-org-config)
 
 ;; Font
 (let ((font-family "Office Code Pro"))
@@ -75,8 +81,11 @@
 (setq ring-bell-function 'ignore)
 
 ;; powerline ftw!!!
-(use-package powerline
-  :preface
-  (setq powerline-default-separator 'arrow)
-  :config
-  (powerline-center-theme))
+;; (use-package powerline
+;;   :preface
+;;   (setq powerline-default-separator 'arrow)
+;;   :config
+;;   (powerline-center-theme))
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))

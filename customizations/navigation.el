@@ -86,7 +86,8 @@
   (setq neo-smart-open t)
 
   ;; ascii icons
-  (setq neo-theme 'ascii)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq inhibit-compacting-font-caches t)
 
   (defun select-open-file-in-neotree ()
     (interactive)
