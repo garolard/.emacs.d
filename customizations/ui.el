@@ -28,10 +28,9 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 
-;; Vamos a probar los DOOM Themes
 (require 'doom-themes)
 
-(load-theme 'doom-one t)
+(load-theme 'doom-nord t)
 
 (doom-themes-neotree-config)
 (doom-themes-org-config)
@@ -82,10 +81,18 @@
 
 ;; powerline ftw!!!
 ;; (use-package powerline
+;;   :ensure t
 ;;   :preface
-;;   (setq powerline-default-separator 'arrow)
+;;   (setq powerline-default-separator 'slant)
 ;;   :config
-;;   (powerline-center-theme))
+;;   (powerline-default-theme))
+
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-mode))
+
+(use-package minions
+  :ensure t
+  :config
+  (setq doom-modeline-minor-modes t)
+  (minions-mode 1))
