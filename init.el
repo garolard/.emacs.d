@@ -32,6 +32,9 @@
 (prefer-coding-system 'utf-8)
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
+;; NO truncar lineas
+(add-hook 'find-file-hook (lambda () (toggle-truncate-lines t)))
+
 ;; The packages you want installed. You can also install these
 ;; manually with M-x package-install
 ;; Add in your own as you wish:

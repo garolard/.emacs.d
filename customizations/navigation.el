@@ -24,6 +24,8 @@
 
 (use-package ido-vertical-mode
   :ensure t)
+(use-package flx-ido
+  :ensure t)
 (use-package ido-completing-read+
   :ensure t
   :bind (("C-x C-b" . ibuffer))
@@ -57,6 +59,7 @@
   (ido-mode 1)
   (ido-everywhere 1)
   (ido-vertical-mode 1)
+  (flx-ido-mode 1)
 
   ;; This enables ido in all contexts where it could be useful, not just
   ;; for selecting buffer and file names
