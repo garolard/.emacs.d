@@ -85,4 +85,5 @@
 ;; Seleccion de palabra como en VSCode
 (use-package multiple-cursors
   :ensure t
-  :bind (("C-S-d" . mc/mark-next-like-this-word)))
+  :bind (("C-S-d" . mc/mark-next-like-this-word)
+         ("C-'" . mc-hide-unmatched-lines-mode)))
