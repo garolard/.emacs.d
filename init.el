@@ -126,7 +126,7 @@
 
 ;; Langauage-specific
 (load "lang/clojure.el")
-; (load "lang/javascript.el")
+(load "lang/javascript.el")
 (load "lang/python.el")
 (load "lang/typescript.el")
 

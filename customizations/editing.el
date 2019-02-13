@@ -70,6 +70,7 @@
 
 ;; tree-mode global
 (use-package undo-tree
+  :ensure t
   :bind (("C-z" . undo)
          ("C-S-z" . redo)
          ("M-<up>" . move-line-up)
@@ -80,3 +81,8 @@
 ;; No se porque pero con use-package da errores raros
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org" . org-mode))
+
+;; Seleccion de palabra como en VSCode
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C-S-d" . mc/mark-next-like-this-word)))
