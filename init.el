@@ -121,6 +121,8 @@
 (load "misc.el")
 (load "agora.el")
 
+(load "key-bindings.el")
+
 ;; For editing lisps
 (load "elisp-editing.el")
 

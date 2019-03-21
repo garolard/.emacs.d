@@ -6,7 +6,7 @@
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-setup)
-         (typescript-mode . tide-set-keys)
+;         (typescript-mode . tide-set-keys)
          (before-save . tide-format-before-save)))
 
 (use-package web-mode
@@ -19,7 +19,7 @@
 (defun setup-ts-for-web-mode ()
   (when (string-equal "tsx" (file-name-extension buffer-file-name))
     (tide-setup)
-    (tide-set-keys)
+ ;   (tide-set-keys)
     (eldoc-mode 1)))
 
 ;; Keybindings for tide
