@@ -15,12 +15,12 @@
 (use-package projectile
   ;; projectile everywhere!
   :ensure t
-  :config
+  :init
   (projectile-mode)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (add-to-list 'projectile-globally-ignored-directories "*node_modules*")
+  (setq projectile-indexing-method 'alien)
+  :config
   (add-to-list 'projectile-globally-ignored-directories "node_modules")
-  (setq projectile-indexing-method 'alien))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package flycheck
   :ensure t

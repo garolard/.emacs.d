@@ -10,6 +10,9 @@
 (defun _ag:start-4-shells (tl-title tl-path tr-title tr-path bl-title bl-path br-title br-path)
   "Splits frame in 4 windows and starts a shell in each one using specified title and path for each one (tl = top-left ... br = bottom-right)"
 
+  (add-hook 'comint-output-filter-functions
+			'comint-truncate-buffer)
+
   (split-window-below)
   (split-window-right)
   (windmove-down)

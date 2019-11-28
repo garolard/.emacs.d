@@ -1,6 +1,9 @@
 ;; Use web-mode for both ts and tsx files
 ;; (I prefer its syntax highlighting instead of typescript-mode)
 
+(setq-default indent-tabs-mode 1)
+(setq-default tab-width 4)
+
 (use-package tide
   :ensure t
   :after (typescript-mode company flycheck)
@@ -19,7 +22,8 @@
 (defun setup-ts-for-web-mode ()
   (when (string-equal "tsx" (file-name-extension buffer-file-name))
     (tide-setup)
- ;   (tide-set-keys)
+	(setq web-mode-auto-quote-style 2) ; use single quote
+ ;   (tide-set-keys) ; Deshabilitado porque ya configuro los atajos en key-bindings.el
     (eldoc-mode 1)))
 
 ;; Keybindings for tide
