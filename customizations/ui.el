@@ -36,7 +36,7 @@
 (doom-themes-org-config)
 
 ;; Font
-(let ((font-family "Office Code Pro"))
+(let ((font-family "Fira Code"))
   (when (member font-family (font-family-list))
     (setq-default line-spacing 5)
     (set-face-attribute 'default nil :font font-family)
