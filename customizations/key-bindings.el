@@ -1,3 +1,8 @@
+;; ag-projectile
+(eval-after-load "projectile" (lambda ()
+								(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+								(define-key projectile-mode-map (kbd "C-c p s") 'ag-files)))
+
 ;; Typescript
 (eval-after-load "tide" (lambda ()
                           (define-key tide-mode-map (kbd "C-b") 'tide-jump-to-definition)

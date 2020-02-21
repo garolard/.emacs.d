@@ -19,8 +19,7 @@
   (projectile-mode)
   (setq projectile-indexing-method 'alien)
   :config
-  (add-to-list 'projectile-globally-ignored-directories "node_modules")
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  (add-to-list 'projectile-globally-ignored-directories "node_modules"))
 
 (use-package flycheck
   :ensure t
