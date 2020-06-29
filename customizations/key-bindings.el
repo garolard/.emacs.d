@@ -11,7 +11,8 @@
                           (define-key tide-mode-map (kbd "M-<f12>") 'tide-project-errors)
                           (define-key tide-mode-map (kbd "<f2>") 'tide-rename-symbol)
                           (define-key tide-mode-map (kbd "C-M-l") 'tide-format)
-                          (define-key tide-mode-map (kbd "M-RET") 'tide-fix)))
+                          (define-key tide-mode-map (kbd "M-RET") 'tide-fix)
+						  (define-key tide-mode-map (kbd "C-S-t") 'tide-nav)))
 
 
 ;; Python
