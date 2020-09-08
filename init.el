@@ -140,11 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-<<<<<<< HEAD
-	(ag uuidgen minions doom-themes all-the-icons ido-vertical-mode web-mode use-package tide tagedit smex rainbow-delimiters projectile paredit neotree ido-ubiquitous ido-completing-read+ highlight-symbol google-this enh-ruby-mode elpy clojure-mode-extra-font-locking cider))))
-=======
     (company-quickhelp-terminal company-quickhelp minions doom-themes all-the-icons ido-vertical-mode web-mode use-package tide tagedit smex rainbow-delimiters projectile paredit neotree ido-ubiquitous ido-completing-read+ highlight-symbol google-this enh-ruby-mode elpy clojure-mode-extra-font-locking cider))))
->>>>>>> Intentando mejorar la integración con TS/TSX
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

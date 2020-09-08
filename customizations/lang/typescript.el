@@ -1,14 +1,7 @@
 ;; Use web-mode for both ts and tsx files
 ;; (I prefer its syntax highlighting instead of typescript-mode)
 
-<<<<<<< HEAD
-(setq-default indent-tabs-mode 1)
-(setq-default tab-width 4)
-
-(use-package tide
-=======
 (use-package flycheck
->>>>>>> Intentando mejorar la integración con TS/TSX
   :ensure t
   :config
   (add-hook 'typescript-mode-hook 'flycheck-mode))
@@ -25,20 +18,9 @@
 (use-package company
   :ensure t
   :config
-<<<<<<< HEAD
-  (flycheck-add-mode 'typescript-tslint 'web-mode))
-
-(defun setup-ts-for-web-mode ()
-  (when (string-equal "tsx" (file-name-extension buffer-file-name))
-    (tide-setup)
-	(setq web-mode-auto-quote-style 2) ; use single quote
- ;   (tide-set-keys) ; Deshabilitado porque ya configuro los atajos en key-bindings.el
-    (eldoc-mode 1)))
-=======
   (setq company-show-numbers t)
   (setq company-tooltip-align-annotations t)
   (global-company-mode))
->>>>>>> Intentando mejorar la integración con TS/TSX
 
 (use-package company-quickhelp
   :ensure t
