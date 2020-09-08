@@ -11,6 +11,9 @@
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
 
+;; Does not starts with default directory on minibuffer
+(setq insert-default-directory nil)
+
 (require 'use-package)
 
 (use-package all-the-icons

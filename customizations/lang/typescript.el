@@ -1,22 +1,31 @@
 ;; Use web-mode for both ts and tsx files
 ;; (I prefer its syntax highlighting instead of typescript-mode)
 
+<<<<<<< HEAD
 (setq-default indent-tabs-mode 1)
 (setq-default tab-width 4)
 
 (use-package tide
+=======
+(use-package flycheck
+>>>>>>> Intentando mejorar la integración con TS/TSX
   :ensure t
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-setup)
-;         (typescript-mode . tide-set-keys)
-         (before-save . tide-format-before-save)))
-
-(use-package web-mode
-  :ensure t
-  :mode (("\\.tsx\\'" . web-mode))
-  :hook (web-mode . setup-ts-for-web-mode)
   :config
+  (add-hook 'typescript-mode-hook 'flycheck-mode))
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
+
+(use-package company
+  :ensure t
+  :config
+<<<<<<< HEAD
   (flycheck-add-mode 'typescript-tslint 'web-mode))
 
 (defun setup-ts-for-web-mode ()
@@ -25,22 +34,50 @@
 	(setq web-mode-auto-quote-style 2) ; use single quote
  ;   (tide-set-keys) ; Deshabilitado porque ya configuro los atajos en key-bindings.el
     (eldoc-mode 1)))
+=======
+  (setq company-show-numbers t)
+  (setq company-tooltip-align-annotations t)
+  (global-company-mode))
+>>>>>>> Intentando mejorar la integración con TS/TSX
 
-;; Keybindings for tide
-(defun tide-set-keys () 
-  (local-set-key (kbd "C-c C-t r") 'tide-rename-symbol)
-  (local-set-key (kbd "C-c C-t s") 'tide-restart-server)
-  (local-set-key (kbd "C-c C-t f") 'tide-references)
-  (local-set-key (kbd "C-c C-t e") 'tide-project-errors)
-  (local-set-key (kbd "C-c C-t b") 'tide-jump-to-definition)
-  (local-set-key (kbd "C-c C-t x") 'tide-fix)
-  (local-set-key (kbd "M-RET") 'tide-fix))
+(use-package company-quickhelp
+  :ensure t
+  :init
+  (company-quickhelp-mode 1)
+  (use-package pos-tip
+    :ensure))
 
-;; Format document before saving with the right options
-;; More options here: https://github.com/Microsoft/TypeScript/blob/cc58e2d7eb144f0b2ff89e6a6685fb4deaa24fde/src/server/protocol.d.ts#L421-473
+(use-package web-mode
+  :ensure t
+  :mode (("\\.html?\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode))
+  :config
+  (setq web-mode-markup-indent-offset 4
+        web-mode-css-indent-offset 4
+        web-mode-code-indent-offset 4
+        web-mode-block-padding 4
+        
+        web-mode-enable-css-colorization t
+        web-mode-enable-auto-pairing t
+        web-mode-enable-comment-keywords t
+        web-mode-enable-current-element-highlight t)
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                (setup-tide-mode))))
+  (flycheck-add-mode 'typescript-tslint 'web-mode))
 
-(setq tide-format-options
-	  '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t	:placeOpenBraceOnNewLineForFunctions nil :tabSize 4 :convertTabsToSpaces nil))
+(use-package typescript-mode
+  :ensure t
+  :config
+  (setq typescript-indent-level 4)
+  (add-hook 'typescript-mode #'subword-mode))
 
-;; Detect compilation errors in compile-mode
-(add-to-list 'compilation-error-regexp-alist '("^ERROR in \\(.*\\)(\\([0-9]+\\),\\([0-9]+\\)):$" 1 2))
+(use-package tide
+  :init
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))

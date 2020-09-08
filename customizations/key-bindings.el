@@ -23,3 +23,17 @@
                           (define-key elpy-mode-map (kbd "<f2>") 'elpy-multiedit-python-symbol-at-point)
                           (define-key elpy-mode-map (kbd "C-M-l") 'elpy-format-code)
                           (define-key elpy-mode-map (kbd "M-RET") 'elpy-refactor)))
+
+;; Javascript
+;; Hay algunas que no tienen asignado nada
+;; porque los comandos de js2-refactor
+;; son un poco más liosos. Prefiero usar esos
+;; como estén
+(eval-after-load "js2-mode" (lambda ()
+                              (define-key js2-mode-map (kbd "C-b") 'xref-find-definitions)
+                              (define-key js2-mode-map (kbd "C--") 'xref-pop)
+                              (define-key js2-mode-map (kbd "M-<f7>") 'xref-find-references)
+                              (define-key js2-mode-map (kbd "M-<f12>") nil)
+                              (define-key js2-mode-map (kbd "<f2>") nil)
+                              (define-key js2-mode-map (kbd "C-M-l") nil)
+                              (define-key js2-mode-map (kbd "M-RET") nil)))
