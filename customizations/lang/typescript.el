@@ -1,3 +1,5 @@
+;; typescript.el -- Para editar aplicaciones Typescript y React
+
 ;; Use web-mode for both ts and tsx files
 ;; (I prefer its syntax highlighting instead of typescript-mode)
 
@@ -39,6 +41,7 @@
         web-mode-css-indent-offset 4
         web-mode-code-indent-offset 4
         web-mode-block-padding 4
+        web-mode-auto-quote-style 2 ;; single-quote
         
         web-mode-enable-css-colorization t
         web-mode-enable-auto-pairing t
@@ -48,18 +51,20 @@
             (lambda ()
               (when (string-equal "tsx" (file-name-extension buffer-file-name))
                 (setup-tide-mode))))
-  (flycheck-add-mode 'typescript-tslint 'web-mode))
+  (flycheck-add-mode 'typescript-tslint 'web-mode)
 
-(use-package typescript-mode
-  :ensure t
-  :config
-  (setq typescript-indent-level 4)
-  (add-hook 'typescript-mode #'subword-mode))
+  (use-package typescript-mode
+    :ensure t
+    :config
+    (setq typescript-indent-level 4)))
 
 (use-package tide
   :init
   :ensure t
+  :config (setq tide-format-options
+                '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil :tabSize 4 :convertTabsToSpaces nil))
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
+;;; typescript.el ends here
